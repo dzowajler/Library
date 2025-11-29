@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OpenLibraryApiConnection;
 
 namespace Library.Controllers
 {
@@ -17,13 +18,15 @@ namespace Library.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private ApiConnection _apiConnection;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+            _apiConnection = new ApiConnection();
         }
 
-        [HttpGet]
+        [HttpGet("/weather")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -34,6 +37,12 @@ namespace Library.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("/books")]
+        public async Task GetBooks()
+        {
+            await _apiConnection.Connect();
         }
     }
 }
