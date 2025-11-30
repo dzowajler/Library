@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OpenLibraryApiConnection;
+using OpenLibraryApi;
 
 namespace Library.Controllers
 {
@@ -18,12 +19,12 @@ namespace Library.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private ApiConnection _apiConnection;
+        private BooksSearchExecutor _booksSearchExecutor;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
-            _apiConnection = new ApiConnection();
+            _booksSearchExecutor = new BooksSearchExecutor();
         }
 
         [HttpGet("/weather")]
@@ -42,7 +43,13 @@ namespace Library.Controllers
         [HttpGet("/books")]
         public async Task GetBooks()
         {
-            await _apiConnection.Connect();
+            await _booksSearchExecutor.ExecuteSearch(BooksSearchType.ByAuthor);
+        }
+
+        [HttpGet("/books2")]
+        public async Task GetBooks2()
+        {
+            await _booksSearchExecutor.ExecuteSearch(BooksSearchType.ByCategory);
         }
     }
 }

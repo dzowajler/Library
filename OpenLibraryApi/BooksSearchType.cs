@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenLibraryApi
 {
-    enum BooksSearchType
+    public enum BooksSearchType
     {
         ByAuthor,
         ByCategory,
