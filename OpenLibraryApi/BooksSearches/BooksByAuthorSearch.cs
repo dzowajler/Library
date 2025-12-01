@@ -8,9 +8,14 @@ namespace OpenLibraryApi.BooksSearches
 {
     public class BooksByAuthorSearch : IBooksSearch
     {
-        public string CreateSearchUrl()
+        public string CreateSearchUrl(string authorSearchParams)
         {
-            return string.Empty;
+            var authorParamsLowerCase = authorSearchParams
+                .ToLower()
+                .Replace(' ', '+');
+
+            return string.Concat(BooksSearchValues.author, BooksSearchValues.equalitySign,
+                authorParamsLowerCase);
         }
     }
 }

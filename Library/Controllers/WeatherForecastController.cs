@@ -40,16 +40,16 @@ namespace Library.Controllers
             .ToArray();
         }
 
-        [HttpGet("/books")]
-        public async Task GetBooks()
+        [HttpGet("/booksByAuthorSearch")]
+        public async Task GetBooksByAuthor(string author)
         {
-            await _booksSearchExecutor.ExecuteSearch(BooksSearchType.ByAuthor);
+            await _booksSearchExecutor.ExecuteSearch(BooksSearchType.ByAuthor, author);
         }
 
         [HttpGet("/books2")]
         public async Task GetBooks2()
         {
-            await _booksSearchExecutor.ExecuteSearch(BooksSearchType.ByCategory);
+            await _booksSearchExecutor.ExecuteSearch(BooksSearchType.ByCategory, string.Empty);
         }
     }
 }

@@ -8,6 +8,6 @@ namespace OpenLibraryApi.BooksSearches
 {
     public interface IBooksSearch
     {
-        string CreateSearchUrl();
+        string CreateSearchUrl(string searchParams);
     }
 }

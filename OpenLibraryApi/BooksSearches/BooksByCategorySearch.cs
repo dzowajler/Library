@@ -8,7 +8,7 @@ namespace OpenLibraryApi.BooksSearches
 {
     public class BooksByCategorySearch : IBooksSearch
     {
-        public string CreateSearchUrl()
+        public string CreateSearchUrl(string categorySearchParams)
         {
             return string.Empty;
         }
