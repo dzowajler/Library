@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mappers\Mappers.csproj" />
     <ProjectReference Include="..\OpenLibraryApi\OpenLibraryApi.csproj" />
   </ItemGroup>
 

@@ -14,13 +14,13 @@ namespace OpenLibraryApiConnection
             httpClient = new HttpClient();
         }
 
-        public async Task Connect(string searchValues = "")
+        public async Task<string> Connect(string searchValues = "")
         {
             //await Task.Delay(10000);
 
             var searchUrl = string.Concat(baseUrl, searchValues);
             var results = await httpClient.GetAsync(searchUrl);
-            var items = await results.Content.ReadAsStringAsync();
+            return await results.Content.ReadAsStringAsync();
         }
     }
 }
