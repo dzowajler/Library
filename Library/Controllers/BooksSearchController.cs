@@ -11,34 +11,17 @@ namespace Library.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class BooksSearchController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<BooksSearchController> _logger;
         private BooksSearchExecutor _booksSearchExecutor;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public BooksSearchController(ILogger<BooksSearchController> logger)
         {
             _logger = logger;
             _booksSearchExecutor = new BooksSearchExecutor();
         }
 
-        [HttpGet("/weather")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
 
         [HttpGet("/booksByAuthorSearch")]
         public async Task GetBooksByAuthor(string author)
