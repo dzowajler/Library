@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace Mappers.BooksSearchModels
 {
-
-    //public class Root
-    //{
-    //    public ApiResult ApiResult { get; set; }
-    //}
-
     public class ApiResult
     {
         [JsonProperty("numFound")]
