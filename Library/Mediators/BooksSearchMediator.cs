@@ -23,7 +23,7 @@ namespace Library.Mediators
         {
             var result = await _booksSearchExecutor.ExecuteSearch(booksSearchType, searchParams);
 
-            return new List<AuthorSearchResultVm>().DefaultIfEmpty();
+            return _mapApiModelsToViewModel.MapAuthorSearchResultToVm(result);
         }
     }
 }

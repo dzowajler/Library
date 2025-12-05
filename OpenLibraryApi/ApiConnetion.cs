@@ -20,7 +20,9 @@ namespace OpenLibraryApiConnection
 
             var searchUrl = string.Concat(baseUrl, searchValues);
             var results = await httpClient.GetAsync(searchUrl);
-            return await results.Content.ReadAsStringAsync();
+            var content = await results.Content.ReadAsStringAsync();
+
+            return content;
         }
     }
 }
