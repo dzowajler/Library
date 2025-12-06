@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mappers.BooksSearchViewModels
 {
-    public class AuthorSearchResultVm
+    public class AuthorSearchResultVm : SearchResultVm
     {
         public string AuthorKey { get; set; }
         public string AuthorName { get; set; }

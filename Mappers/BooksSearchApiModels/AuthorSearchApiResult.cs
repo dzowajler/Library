@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mappers.BooksSearchModels
 {
-    public class ApiResult
+    public class ApiResultRootAuthor
     {
         [JsonProperty("numFound")]
         public int NumberOfResults { get; set; }

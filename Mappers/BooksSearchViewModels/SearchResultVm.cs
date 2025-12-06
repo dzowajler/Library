@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mappers.BooksSearchModels
+namespace Mappers.BooksSearchViewModels
 {
-    public class CategorySearchResult
+    public abstract class SearchResultVm
     {
     }
 }

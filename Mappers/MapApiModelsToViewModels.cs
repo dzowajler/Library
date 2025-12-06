@@ -13,11 +13,11 @@ namespace Mappers
     {
         public IEnumerable<AuthorSearchResultVm> MapAuthorSearchResultToVm(string jsonResult)
         {
-            var result = JsonConvert.DeserializeObject<ApiResult>(jsonResult);
+            var result = JsonConvert.DeserializeObject<ApiResultRootAuthor>(jsonResult);
             var items = new List<AuthorSearchResultVm>();
 
             if (result == null || result.NumberOfResults == 0)
-                return Enumerable.Empty<AuthorSearchResultVm>();
+                return null;
 
             foreach(var item in result.AuthorSearchApiResult)
             {
@@ -36,6 +36,11 @@ namespace Mappers
             }
 
             return items;
+        }
+
+        public IEnumerable<CategorySearchResultVm> MapCategorySearchResultToVm(string jsonResult)
+        {
+            return null;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mappers.BooksSearchViewModels
 {
-    public class CategorySearchResultVm
+    public class CategorySearchResultVm : SearchResultVm
     {
     }
 }

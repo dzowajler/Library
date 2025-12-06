@@ -11,19 +11,19 @@ namespace Library.Mediators
     public class BooksSearchMediator
     {
         private BooksSearchExecutor _booksSearchExecutor;
-        private MapApiModelsToViewModels _mapApiModelsToViewModel;
+        private MappingExecutor _mappingExecutor;
 
         public BooksSearchMediator()
         {
             _booksSearchExecutor = new BooksSearchExecutor();
-            _mapApiModelsToViewModel = new MapApiModelsToViewModels();
+            _mappingExecutor = new MappingExecutor();
         }
 
-        public async Task<IEnumerable<AuthorSearchResultVm>> UsePipe(BooksSearchType booksSearchType, string searchParams)
+        public async Task<IEnumerable<SearchResultVm>> UsePipe(BooksSearchType booksSearchType, string searchParams)
         {
             var result = await _booksSearchExecutor.ExecuteSearch(booksSearchType, searchParams);
 
-            return _mapApiModelsToViewModel.MapAuthorSearchResultToVm(result);
+            return _mappingExecutor.Execute(booksSearchType.ToString(), result);
         }
     }
 }

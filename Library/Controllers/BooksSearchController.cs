@@ -27,13 +27,13 @@ namespace Library.Controllers
         [HttpGet("/booksByAuthorSearch")]
         public async Task<IEnumerable<AuthorSearchResultVm>> GetBooksByAuthor(string author)
         {
-            return await _booksSearchMediator.UsePipe(BooksSearchType.ByAuthor, author);
+            return await _booksSearchMediator.UsePipe(BooksSearchType.ByAuthor, author) as List<AuthorSearchResultVm>;
         }
 
         [HttpGet("/books2")]
-        public async Task GetBooks2()
+        public async Task<IEnumerable<CategorySearchResultVm>> GetBooksByCategorySearch(string category)
         {
-            await _booksSearchMediator.UsePipe(BooksSearchType.ByCategory, string.Empty);
+            return await _booksSearchMediator.UsePipe(BooksSearchType.ByCategory, category) as List<CategorySearchResultVm>;
         }
     }
 }
